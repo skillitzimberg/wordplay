@@ -1,21 +1,23 @@
 $(document).ready(function() {
-  $("form#input").submit(function(event){
+  var suits = ["clubs", "diamonds", "hearts", "spades"];
+  var faces = ["ace", "2", "3", "4", "5", "6","7", "8", "9", "10", "jack", "queen", "king"];
+  var cards = [];
+
+  $("#deck").submit(function(event) {
     event.preventDefault();
 
-    var inputSentence = $("input#sentence").val();
-    var sentenceWords = inputSentence.split(" ");
-    var words = [];
+    suits.forEach(function(suit) {
+      faces.forEach(function(face) {
+        cards.push(face + " of " + suit);
+        return cards;
 
-    var threePlusLetterWords = sentenceWords.forEach(function(word) {
+      });
 
-      if (word.length >= 3) {
-        words.push(word);
-
-      }
-         console.log(words);
     });
 
-    console.log(threePlusLetterWords);
+  });
+  cards.forEach(function(card) {
+    $("#fullDeck").append("<li>" + card "</li>");
   });
 
 });
