@@ -7,8 +7,8 @@ $(document).ready(function() {
     var words = [];
 
     var threePlusLetterWords = sentenceWords.forEach(function(word) {
-      
-      if (word && word.length >= 3) {
+
+      if (word.length >= 3) {
         words.push(word);
 
       }
